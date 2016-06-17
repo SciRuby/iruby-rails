@@ -1,28 +1,31 @@
-# Iruby::Rails
+# IRuby::Rails
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/iruby/rails`. To experiment with that code, run `bin/console` for an interactive prompt.
+This library allows us to integrate IRuby and Rails.
 
-TODO: Delete this and the text above, and describe your gem
+## Prerequisites
+
+zermq is required.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'iruby-rails'
+gem 'iruby-rails', group: :development
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install iruby-rails
-
 ## Usage
 
-TODO: Write usage instructions here
+Run the code below in the notbook cell.
+
+```ruby
+require 'iruby/rails'
+IRuby.load_rails
+```
 
 ## Development
 
