@@ -1,6 +1,7 @@
 require "iruby/rails/version"
 
 require 'forwardable'
+require 'irb'
 
 module IRuby
   module Rails
