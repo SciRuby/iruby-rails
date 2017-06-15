@@ -1,7 +1,6 @@
 require "iruby/rails/version"
 
 require 'forwardable'
-require 'irb'
 
 module IRuby
   module Rails
@@ -39,7 +38,18 @@ module IRuby
           puts "Loading #{::Rails.env} environment (Rails #{::Rails.version})"
         end
 
-        console = app.config.console || IRB
+        iruby_backend = IRuby::Kernel.instance.instance_eval { @backend }
+        console = case iruby_backend
+                  when IRuby::PryBackend
+                    require 'pry'
+                    Pry
+                  when IRuby::PlainBackend
+                    require 'irb'
+                    IRB
+                  else
+                    raise "Unknown IRuby backend: #{iruby_backend}"
+                  end
+
         if defined?(console::ExtendCommandBundle)
           console::ExtendCommandBundle.include(::Rails::ConsoleMethods)
         end
