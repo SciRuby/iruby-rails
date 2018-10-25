@@ -38,7 +38,14 @@ module IRuby
           puts "Loading #{::Rails.env} environment (Rails #{::Rails.version})"
         end
 
-        console = app.config.console || IRB
+        console =
+          if app.config.console
+            app.config.console
+          else
+            require "irb"
+            IRB
+          end
+
         if defined?(console::ExtendCommandBundle)
           console::ExtendCommandBundle.include(::Rails::ConsoleMethods)
         end
