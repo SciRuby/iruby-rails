@@ -25,5 +25,4 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rails"
   spec.add_dependency "iruby", "~> 0.3"
-  spec.add_dependency "ffi-rzmq", "~> 2.0.4"
 end

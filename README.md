@@ -12,6 +12,10 @@ Add this line to your application's Gemfile:
 
 ```ruby
 gem 'iruby-rails', group: :development
+
+# You have to specify which cztop or ffi-rzmq do you use for ZMQ
+gem 'cztop'
+# gem 'ffi-rzmq'
 ```
 
 And then execute:
